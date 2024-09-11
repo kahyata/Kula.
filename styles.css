@@ -1,6 +1,7 @@
 /* styles.css */
 @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
 
+/*Consists of the body and home section*/
 :root {
     --primary: rgba(37, 37, 37, 1.0);
     --secondary: rgba(252, 41, 74, 1.0);
@@ -43,16 +44,15 @@ body {
 }
 
 .featureCards {
-    width: 75%;
+    width: 60%;
 }
 
 .featureCards2 {
-    width: 25%;
+    width: 40%;
 }
 
 .featureCards2 img {
     width: 100%;
-    display: block;
     margin-bottom: 10px;
 }
 
@@ -63,8 +63,7 @@ body {
 
 .featureCards2 .container {
     text-align: center;
-    padding: 10px;
-    height: 348px;
+    align-items: center;
 }
 
 .text-containerBody h4 {
@@ -161,6 +160,23 @@ body {
     list-style: none;
 }
 
+.nav__item {
+    margin-left: 1rem;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #8EACCD;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
 .nav__link {
     color: #8EACCD;
     text-decoration: none;
@@ -216,6 +232,7 @@ body {
     padding: 2rem;
     max-width: 1200px;
     width: 100%;
+    height: 100%;
 }
 
 .main-container {
@@ -240,7 +257,7 @@ body {
     max-width: 1000px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /*align-items: center;*/
 }
 
 .image-container img {
@@ -248,18 +265,17 @@ body {
     height: auto;
     max-width: 1000px;
     border-radius: 8px;
+    align-items: center;
     object-fit: cover;
 }
 
 .text-containerFooter {
     display: flex;
     align-items: center;
-    margin-top: 20px;
 }
 
 .text-containerFooter span {
-    margin-right: 5px;
-    margin-left: 30px;
+    align-items: center;
 }
 
 .w-full {
@@ -271,132 +287,126 @@ svg {
     height: 20px;
 }
 
-@media (max-width: 768px) {
-    .home {
-        flex-direction: column;
-    }
 
+@media screen and (max-width: 768px) {
     .container {
-        flex-direction: column;
+      flex-direction: column;
+      padding: 1rem;
     }
-
-    .main-container, .secondary-container {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 1rem;
+  
+    .main-container,
+    .secondary-container {
+      width: 100%;
+      margin-right: 0;
     }
-
-    .navbar {
-        flex-direction: column;
+  
+    .text-container {
+      padding: 10px;
     }
-
+  
+    .image-container img {
+      max-width: 100%;
+    }
+  
+    /* Ensure featureCards and featureCards2 have the same height */
+    .featureCards,
+    .featureCards2 {
+      width: 100%;
+      margin: 10px 0;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .featureCards .container,
+    .featureCards2 .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    /* Hamburger menu styles */
     .nav__items {
-        flex-direction: column;
-        width: 100%;
+      display: none;
+      position: absolute;
+      top: 60px; /* Adjust based on your navbar height */
+      left: 0;
+      width: 100%;
+      background-color: white;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-
+  
+    .nav__items.active {
+      display: flex;
+    }
+  
     .nav__item {
-        margin: 0.5rem 0;
+      margin: 10px 0;
     }
-}
+  
+    .hamburger {
+      display: block;
+      cursor: pointer;
+    }
+  
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #8EACCD;
+      margin: 5px;
+      transition: all 0.3s ease;
+    }
+  
+    /* Hamburger animation */
+    .hamburger.active .line1 {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+  
+    .hamburger.active .line2 {
+      opacity: 0;
+    }
+  
+    .hamburger.active .line3 {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+  }
+  
+  /* Specific adjustments for the home section */
+  @media screen and (max-width: 768px) {
+    .home {
+      padding: 1rem;
+      min-height: calc(100vh - 60px); /* Adjust 60px based on your header height */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  
+    .text-containerBody h4 {
+      font-size: 1.2rem;
+    }
+  
+    .text-containerBody p {
+      font-size: 0.9rem;
+    }
+  
+    .text-containerFooter {
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* Improve readability on smaller screens */
+  @media screen and (max-width: 768px) {
+    body {
+      font-size: 16px;
+    }
+  
+    .nav__items .nav__link {
+      font-size: 0.9rem;
+    }
+  }
 
-@media screen and (max-width: 799px) {
-    .nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: -1;
-        background-color: var(--primary);
-        opacity: 0;
-        transition: all 0.2s ease;
-    }
-
-    .nav .nav__items {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100%;
-        padding-inline-start: 0;
-    }
-
-    .nav .nav__items .nav__item {
-        display: block;
-        float: none;
-        width: 100%;
-        text-align: right;
-        margin-bottom: 10px;
-    }
-
-    .nav .nav__items .nav__item:nth-child(1) a {
-        transition-delay: 0.2s;
-    }
-
-    .nav .nav__items .nav__item:nth-child(2) a {
-        transition-delay: 0.3s;
-    }
-
-    .nav .nav__items .nav__item:nth-child(3) a {
-        transition-delay: 0.4s;
-    }
-
-    .nav .nav__items .nav__item:nth-child(4) a {
-        transition-delay: 0.5s;
-    }
-
-    .nav .nav__items .nav__item:not(:first-child) {
-        margin-left: 0;
-    }
-
-    .nav .nav__items .nav__item .nav__link {
-        padding: 10px 25px;
-        opacity: 0;
-        color: var(--shades);
-        font-size: 24px;
-        font-weight: 600;
-        transform: translateY(-20px);
-        transition: all 0.2s ease;
-    }
-
-    .nav .nav__items .nav__item .nav__link:hover {
-        color: var(--secondary);
-    }
-
-    .nav__open {
-        position: absolute;
-        right: 10px;
-        top: 16px;
-        display: block;
-        width: 48px;
-        height: 48px;
-        cursor: pointer;
-        z-index: 9999;
-        border-radius: 50%;
-    }
-
-    .nav__open i {
-        display: block;
-        width: 20px;
-        height: 2px;
-        background-color: var(--secondary);
-        border-radius: 2px;
-        margin-left: 14px;
-    }
-
-    .nav__open i:nth-child(1) {
-        margin-top: 16px;
-    }
-
-    .nav__open i:nth-child(2) {
-        margin-top: 4px;
-        opacity: 1;
-    }
-
-    .nav__open i:nth-child(3) {
-        margin-top: 4px;
-    }
-}
 
 #nav:checked + .nav__open {
     transform: rotate(45deg);
@@ -432,3 +442,4 @@ svg {
     opacity: 1;
     transform: translateY(0);
 }
+
