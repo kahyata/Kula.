@@ -7,14 +7,11 @@
     <title>Kula</title>
 </head>
 <body>
-    <header class="header">
-        <h1>Header</h1>
-    </header>
     <nav class="sticky navbar">
-        <div class="brand  display__logo">
+        <div class="brand display__logo">
             <a href="#top" class="nav__link">Kula</a>
         </div>
-            <div class="nav">
+        <div class="nav">
             <ul class="nav__items">
                 <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
                 <li class="nav__item"><a href="#borrow" class="nav__link">Borrow</a></li>
@@ -25,39 +22,192 @@
     </nav>
     
     <main>
-        <section class="home">
-            <div id="home">
-                <div class = "intro">
-                    <div class = "Intro- Text section">
-                        <h1 class = " Character__HeadingText">The Kula Entrepreneur Network</h1>
-                    </div>
-                    <div class = "Character__Body">
+        <section id="home" class="home">
+            <div class="intro withImage marginBottom marginTop--custom paddingBottom paddingTop" id="">
+                <div class="grid intro__grid">
+                    <div class="row intro__row">
+                        <!-- Content Column -->
+                        <div class="column intro__contentColumn">
+                            <div class="Intro__heading" style="max-width: 524px;">
+                                <h1 class="Intro__headingText">KULA 
+                                    <br>Growing<br>With You</h1>
+                            </div>
+                            <div class="Intro__body withMobileImage fontColor--boltBlack" style="max-width: 432px;">
+                                <div class="Intro__bodyText">
+                                    <p>Welcome To The Hustler's Jumpstarting Network To Zambia's Promising Businesses.</p>
+                                </div>
+                                <div class="Intro__ctaWrapper">
+                                    <a href="#t&c" class="banner__cta">Sign up today and part of the winning team→</a>
+                                </div>
+                            </div>
+                        </div>
                         
-                    </div>
-                    <div class = " Intro- imagecontainer">                        
+                        <!-- Mobile Image -->
+                        <div class="Intro__mobileImageWrapper">
+                            <img src=""
+                                 loading="eager"
+                                 class="intro__mobileImage"
+                                 data-airgap-id="75">
+                        </div>
                     </div>
                 </div>
-            </div>
+            </div>          
         </section>
-        <section class="borrow">
-            <div id="borrow">
-                <h1>Borrow</h1>
+        <section id="borrow" class="borrow">
+          <div class="loan-menu__container">
+            <div class = "loan-menu__content">
+            <h2 class="loan-menu__title">Get Started, Apply Now.</h2>
+            <div class="menu">
+              <ul>
+                  <li><a href="javascript:void(0);" onclick="showContent('business', this)">Business Loan</a></li>
+                  <li><a href="javascript:void(0);" onclick="showContent('agriculture', this)">Agriculture Loan</a></li>
+                  <li><a href="javascript:void(0);" onclick="showContent('personal', this)">Personal Loan</a></li>
+                  <li><a href="javascript:void(0);" onclick="showContent('mortgage', this)">Mortgage</a></li>
+              </ul>
             </div>
+          <div id="content">
+              <div id="business" class="loan-content">
+                  <h2 class ="loan_title">Business Loan</h2>
+                  <p>Details about business loans, including eligibility and interest rates.</p>
+                  <div class="loan-calculator">
+                    <div class="step-indicator">
+                        <span class="step active">1</span>
+                        <span class="step">2</span>
+                        <span class="step">3</span>
+                        <span class="step">4</span>
+                        <span class="step">5</span>
+                    </div>
+            
+                    <form id="loan-form">
+                        <!-- Step 1: Loan Summary -->
+                        <div class="step-content active" id="step-1">
+                            <h2>Loan Summary</h2>
+                            <p>Please review the terms and conditions before proceeding.</p>
+                            <button type="button" onclick="nextStep(1)">Next</button>
+                        </div>
+                    
+                        <!-- Step 2: Loan Details -->
+                        <div class="step-content" id="step-2">
+                            <div class="form-group">
+                                <label for="loan-amount">How much do you want?</label>
+                                <input type="number" id="loan-amount" name="loanAmount" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="duration">For how long? (1 - 60 months)</label>
+                                <input type="number" id="duration" name="duration" min="1" max="60" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reason">Reason for loan:</label>
+                                <input type="text" id="reason" name="reason" required>
+                            </div>
+                            <button type="button" class="prev-btn" onclick="prevStep(2)">Back</button>
+                            <button type="button" onclick="nextStep(2)">Next</button>
+                        </div>
+                    
+                        <!-- Step 3: Personal Information -->
+                        <div class="step-content" id="step-3">
+                            <div class="form-group">
+                                <label for="first_name">First Name:</label>
+                                <input type="text" id="first_name" name="first_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Last Name:</label>
+                                <input type="text" id="last_name" name="last_name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nrc">NRC (123456/12/1):</label>
+                                <input type="text" id="nrc" name="nrc" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dob">Date of Birth:</label>
+                                <input type="date" id="dob" name="dob" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number:</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="province">Province:</label>
+                                <input type="text" id="province" name="province" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="town">Town:</label>
+                                <input type="text" id="town" name="town" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="residence">Residence:</label>
+                                <input type="text" id="residence" name="residence" required>
+                            </div>
+                            <button type="button" class="prev-btn" onclick="prevStep(3)">Back</button>
+                            <button type="button" onclick="nextStep(3)">Next</button>
+                        </div>
+                    
+                        <!-- Step 4: Employment Details -->
+                        <div class="step-content" id="step-4">
+                            <div class="form-group">
+                                <label for="employment">Employment Status:</label>
+                                <input type="text" id="employment" name="employment" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="income">Monthly Income:</label>
+                                <input type="number" id="income" name="income" required>
+                            </div>
+                            <button type="button" class="prev-btn" onclick="prevStep(4)">Back</button>
+                            <button type="button" onclick="nextStep(4)">Next</button>
+                        </div>
+                    
+                        <!-- Step 5: Confirmation -->
+                        <div class="step-content" id="step-5">
+                            <h2>Confirmation</h2>
+                            <p>Review your loan details and personal information before submitting.</p>
+                            <button type="button" class="prev-btn" onclick="prevStep(5)">Back</button>
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+              </div>
+              <div id="agriculture" class="loan-content">
+                  <h2 class ="loan_title">Agriculture Loan</h2>
+                  <p>Details about agriculture loans, including eligibility and interest rates.</p>
+              </div>
+              <div id="personal" class="loan-content">
+                  <h2 class ="loan_title">Personal Loan</h2>
+                  <p>Details about personal loans, including eligibility and interest rates.</p>
+              </div>
+              <div id="mortgage" class="loan-content">
+                  <h2 class ="loan_title">Mortgage</h2>
+                  <p>Details about mortgages, including eligibility and interest rates.</p>
+              </div>
+          </div>
+            </div>
+        </div>
+            <div class="banner">
+              <div class="banner__container">
+                <div class="banner__content">
+                  <h2 class="banner__title">Instant,Reliable & Professional Services.</h2>
+                  <p class="banner__text">Less interest rates for more of your growth-- or your pleasure. No crappy services just love. Read our T&Cs.</p>
+                  <a href="#t&c" class="banner__cta">Learn more →</a>
+                </div>
+                <div class="banner__image">
+                </div>
+              </div>
+            </div>          
         </section>
-        <section class="portfolio">
-            <div id="portfolio">
-                <h1>Portfolio</h1>
-            </div>
+        <section id="portfolio" class="portfolio">
+            <h1>Portfolio</h1>
         </section>
-        <section class="contact">
-            <div id="contact">
-                <h1>Contact</h1>
-            </div>
+        <section id="contact" class="contact">
+            <h1>Contact</h1>
         </section>
     </main>
     
     <footer class="footer">
         <h1>Footer</h1>
-    </footer>    
+    </footer> 
+    <script src ="main.js"></script> 
 </body>
 </html>
